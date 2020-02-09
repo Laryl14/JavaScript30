@@ -75,6 +75,18 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const sortedlastname = people.sort(sortbylastname);
+
+    function sortbylastname(a,b){
+      return (getlastname(a)>getlastname(b));
+    }
+
+    function getlastname(namevalue){
+      fullname = namevalue.split(", ");
+      return fullname[0];
+    }
+
+    console.log(sortedlastname);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
