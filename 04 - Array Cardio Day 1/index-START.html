@@ -99,6 +99,24 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    const dataobjectarray=[]
+    for(let i = 0; i<data.length; i++) {
+      for (let j = 0; j < dataobjectarray.length; j++) {
+        if (dataobjectarray[j].type == data[i]) {
+          dataobjectarray[j].amount += 1;
+        }
+      }
+      if(!(dataobjectarray.some(vehicle => vehicle.type == data[i]))) {
+        let newvehicle = new Object();
+        newvehicle.type = data[i];
+        newvehicle.amount = 1;
+        dataobjectarray.push(newvehicle);
+      }
+    }
+    console.log(dataobjectarray);
+
+
+
   </script>
 </body>
 </html>
