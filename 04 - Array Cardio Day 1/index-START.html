@@ -34,9 +34,17 @@
 
     const born = inventors.filter(x => x.year >=1500 && x.year < 1600);
     console.log(born);
-    
+
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const finalnamestring = inventors.map(firstandlastname)
+    function firstandlastname (x){
+      const space = ' '
+      const namestring = x.first + space + x.last;
+      return namestring;
+      //console.log(namestring);
+    }
+    console.log(finalnamestring);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
