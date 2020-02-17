@@ -54,7 +54,7 @@
     // 5. Sort the inventors by years lived
     const sortedYearsLived = inventors.sort(yearsLived);
 
-    function yearsLived(a,b){
+    function yearsLived(a,b) {
       return ((b.passed-b.year)-(a.passed-a.year));
     }
 
@@ -68,11 +68,11 @@
     // Sort the people alphabetically by last name
     const sortedLastName = people.sort(sortByLastName);
 
-    function sortByLastName(a,b){
+    function sortByLastName(a,b) {
       return (getLastName(a)>getLastName(b));
     }
 
-    function getLastName(nameValue){
+    function getLastName(nameValue) {
       let fullName = nameValue.split(", ");
       return fullName[0];
     }
