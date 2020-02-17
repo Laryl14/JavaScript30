@@ -36,22 +36,22 @@
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-    const finalnamestring = inventors.map(firstandlastname);
+    const finalNameString = inventors.map(firstAndLastName);
 
-    function firstandlastname (x){
+    function firstAndLastName (x){
       const space = ' '
-      const namestring = x.first + space + x.last;
-      return namestring;
-      //console.log(namestring);
+      const nameString = x.first + space + x.last;
+      return nameString;
+      //console.log(nameString);
     }
 
-    console.log(finalnamestring);
+    console.log(finalNameString);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-    const sort = inventors.sort(oldesttoyoungest);
+    const sort = inventors.sort(oldestToYoungest);
 
-    function oldesttoyoungest(a,b){
+    function oldestToYoungest(a,b){
       return a.year-b.year;
     }
 
@@ -59,22 +59,22 @@
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-    const year = inventors.reduce(livetogether, 0);
+    const year = inventors.reduce(liveTogether, 0);
 
-    function livetogether(totalyears, x){
-      return totalyears+ (x.passed - x.year);
+    function liveTogether(totalYears, x){
+      return totalYears+ (x.passed - x.year);
     }
 
     console.log(year);
 
     // 5. Sort the inventors by years lived
-    const sortedyearslived = inventors.sort(yearslived);
+    const sortedYearsLived = inventors.sort(yearsLived);
 
-    function yearslived(a,b){
+    function yearsLived(a,b){
       return ((b.passed-b.year)-(a.passed-a.year));
     }
 
-    console.log(sortedyearslived);
+    console.log(sortedYearsLived);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -82,38 +82,38 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-    const sortedlastname = people.sort(sortbylastname);
+    const sortedLastName = people.sort(sortByLastName);
 
-    function sortbylastname(a,b){
-      return (getlastname(a)>getlastname(b));
+    function sortByLastName(a,b){
+      return (getLastName(a)>getLastName(b));
     }
 
-    function getlastname(namevalue){
-      fullname = namevalue.split(", ");
-      return fullname[0];
+    function getLastName(nameValue){
+      let fullName = nameValue.split(", ");
+      return fullName[0];
     }
 
-    console.log(sortedlastname);
+    console.log(sortedLastName);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
-    const dataobjectarray=[]
+    const dataObjectArray=[]
     for(let i = 0; i<data.length; i++) {
-      for (let j = 0; j < dataobjectarray.length; j++) {
-        if (dataobjectarray[j].type == data[i]) {
-          dataobjectarray[j].amount += 1;
+      for (let j = 0; j < dataObjectArray.length; j++) {
+        if (dataObjectArray[j].type == data[i]) {
+          dataObjectArray[j].amount += 1;
         }
       }
-      if(!(dataobjectarray.some(vehicle => vehicle.type == data[i]))) {
-        let newvehicle = new Object();
-        newvehicle.type = data[i];
-        newvehicle.amount = 1;
-        dataobjectarray.push(newvehicle);
+      if(!(dataObjectArray.some(vehicle => vehicle.type == data[i]))) {
+        let newVehicle = new Object();
+        newVehicle.type = data[i];
+        newVehicle.amount = 1;
+        dataObjectArray.push(newVehicle);
       }
     }
-    console.log(dataobjectarray);
+    console.log(dataObjectArray);
 
 
 
