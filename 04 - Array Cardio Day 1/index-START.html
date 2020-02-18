@@ -31,17 +31,34 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    const born = inventors.filter(x => x.year >=1500 && x.year < 1600);
+    console.log(born);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const finalNameString = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+    console.log(finalNameString);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const sort = inventors.sort(((a, b) => a.year - b.year));
+    console.log(sort);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    const year = inventors.reduce((totalYears,x) => {
+      return totalYears + (x.passed - x.year);
+    }, 0);
+    console.log(year);
 
     // 5. Sort the inventors by years lived
+    const sortedYearsLived = inventors.sort(yearsLived);
+
+    function yearsLived(a,b) {
+      return ((b.passed-b.year)-(a.passed-a.year));
+    }
+
+    console.log(sortedYearsLived);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -49,10 +66,40 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const sortedLastName = people.sort(sortByLastName);
+
+    function sortByLastName(a,b) {
+      return (getLastName(a)>getLastName(b));
+    }
+
+    function getLastName(nameValue) {
+      let fullName = nameValue.split(", ");
+      return fullName[0];
+    }
+
+    console.log(sortedLastName);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    const dataObjectArray=[]
+    for(let i = 0; i<data.length; i++) {
+      for (let j = 0; j < dataObjectArray.length; j++) {
+        if (dataObjectArray[j].type == data[i]) {
+          dataObjectArray[j].amount += 1;
+        }
+      }
+      if(!(dataObjectArray.some(vehicle => vehicle.type == data[i]))) {
+        let newVehicle = new Object();
+        newVehicle.type = data[i];
+        newVehicle.amount = 1;
+        dataObjectArray.push(newVehicle);
+      }
+    }
+    console.log(dataObjectArray);
+
+
 
   </script>
 </body>
